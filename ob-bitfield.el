@@ -2,6 +2,7 @@
 
 ;; Author: Gulshan Singh
 ;; Version: 0.1
+;; Package-Requires: ((emacs "24.4"))
 ;; URL: https://github.com/gsingh93/ob-bitfield
 
 ;; This file is free software; you can redistribute it and/or modify
@@ -27,7 +28,7 @@
 ;; Highlight bitfield source blocks using the `js' package
 (add-to-list 'org-src-lang-modes '("bitfield" . js))
 
-(defun org-babel-bitfield--get-arg (key argname params)
+(defun ob-bitfield--get-arg (key argname params)
   "Return the bitfield command line flag using ARGNAME and the
 argument value from PARAMS if KEY is in PARAMS, otherwise return
 nil."
@@ -44,13 +45,13 @@ This function is called by `org-babel-execute-src-block'."
   (let* ((out-file (cdr (or (assq :file params)
                             (error "You need to specify a :file parameter"))))
          (file-ext (file-name-extension out-file))
-         (lanes (org-babel-bitfield--get-arg :lanes "lanes" params))
-         (vspace (org-babel-bitfield--get-arg :vspace "vspace" params))
-         (hspace (org-babel-bitfield--get-arg :hspace "hspace" params))
-         (bits (org-babel-bitfield--get-arg :bits "bits" params))
-         (fontfamily (org-babel-bitfield--get-arg :fontfamily "fontfamily" params))
-         (fontweight (org-babel-bitfield--get-arg :fontweight "fontweight" params))
-         (fontsize (org-babel-bitfield--get-arg :fontsize "fontsize" params))
+         (lanes (ob-bitfield--get-arg :lanes "lanes" params))
+         (vspace (ob-bitfield--get-arg :vspace "vspace" params))
+         (hspace (ob-bitfield--get-arg :hspace "hspace" params))
+         (bits (ob-bitfield--get-arg :bits "bits" params))
+         (fontfamily (ob-bitfield--get-arg :fontfamily "fontfamily" params))
+         (fontweight (ob-bitfield--get-arg :fontweight "fontweight" params))
+         (fontsize (ob-bitfield--get-arg :fontsize "fontsize" params))
          (compact (when (assq :compact params) "--compact"))
          (in-file (org-babel-temp-file "bitfield-" ".json"))
          ;; We only need to create a temporary SVG file if the output file is

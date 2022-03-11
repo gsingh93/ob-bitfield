@@ -29,9 +29,11 @@
 (add-to-list 'org-src-lang-modes '("bitfield" . js))
 
 (defun ob-bitfield--get-arg (key argname params)
-  "Return the bitfield command line flag using ARGNAME and the
-argument value from PARAMS if KEY is in PARAMS, otherwise return
-nil."
+  "Return the bitfield command line flag for the given KEY.
+If KEY is in PARAMS, get the argument value for that key from
+PARAMS and combine it with ARGNAME to construct the command line
+flag passed to the bitfield command line program.  If KEY is not
+in PARAMS, return nil."
   (let ((arg (cdr (assq key params))))
     (when arg (format "--%s %s" argname arg))))
 

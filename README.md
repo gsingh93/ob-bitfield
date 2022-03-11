@@ -18,10 +18,7 @@ Download [ob-bitfield.el](https://raw.githubusercontent.com/gsingh93/ob-bitfield
 ```elisp
 (org-babel-do-load-languages
    'org-babel-load-languages
-   '((python . t)
-     (dot . t)
-     (bitfield . t)
-     (ditaa . t)))
+   '((bitfield . t)))
 ```
 
 2. Add `(require 'ob-bitfield)` to your Emacs init file

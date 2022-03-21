@@ -34,8 +34,10 @@ If KEY is in PARAMS, get the argument value for that key from
 PARAMS and combine it with ARGNAME to construct the command line
 flag passed to the bitfield command line program.  If KEY is not
 in PARAMS, return nil."
-  (let ((arg (cdr (assq key params))))
-    (when arg (format "--%s %s" argname arg))))
+  (let* ((arg (cdr (assq key params)))
+         (string-arg (if (numberp arg) (number-to-string arg) arg)))
+    (when string-arg
+      (format "--%s %s" argname (shell-quote-argument string-arg)))))
 
 (defvar org-babel-default-header-args:bitfield
   '((:results . "file graphics") (:exports . "results"))

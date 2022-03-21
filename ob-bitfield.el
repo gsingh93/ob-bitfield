@@ -43,7 +43,9 @@ in PARAMS, return nil."
 
 (defun org-babel-execute:bitfield (body params)
   "Execute bitfield with the JSON block as input using org-babel.
-This function is called by `org-babel-execute-src-block'."
+This function is called by `org-babel-execute-src-block' with
+BODY set to the contents of the source block and PARAMS set to
+the header args."
   (let* ((out-file (cdr (or (assq :file params)
                             (error "You need to specify a :file parameter"))))
          (file-ext (file-name-extension out-file))

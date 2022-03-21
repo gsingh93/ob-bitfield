@@ -68,7 +68,7 @@ the header args."
                      (org-babel-temp-file "bitfield-" ".svg")))
          ;; Any nil argument passed to `string-join' is converted to an empty
          ;; string
-         (args (string-join (list "--input " in-file
+         (args (string-join (list "--input" in-file
                                   lanes vspace hspace bits
                                   fontfamily fontweight fontsize
                                   compact)

@@ -46,8 +46,9 @@ in PARAMS, return nil."
 This function is called by `org-babel-execute-src-block' with
 BODY set to the contents of the source block and PARAMS set to
 the header args."
-  (let* ((out-file (cdr (or (assq :file params)
-                            (error "You need to specify a :file parameter"))))
+  (let* ((out-file
+          (cdr (or (assq :file params)
+                   (user-error "You need to specify a :file parameter"))))
          (file-ext (file-name-extension out-file))
          (lanes (ob-bitfield--get-arg :lanes "lanes" params))
          (vspace (ob-bitfield--get-arg :vspace "vspace" params))
@@ -84,7 +85,7 @@ the header args."
 
 (defun org-babel-prep-session:bitfield (_session _params)
   "Return an error because bitfield does not support sessions."
-  (error "bitfield does not support sessions"))
+  (user-error "bitfield does not support sessions"))
 
 (provide 'ob-bitfield)
 

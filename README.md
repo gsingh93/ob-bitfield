@@ -1,17 +1,12 @@
-# ob-bitfield
+# ob-bitfield [![MELPA](https://melpa.org/packages/ob-bitfield-badge.svg)](https://melpa.org/#/ob-bitfield)
 
 Generate bitfield diagrams using the Python [bitfield](https://github.com/Arth-ur/bitfield) package and [org-babel](https://orgmode.org/worg/org-contrib/babel/).
 
 ## Installation
 
-Install the [bitfield](https://github.com/Arth-ur/bitfield) Python package:
-```
-pip install bit_field json5
-```
+`ob-bitfield` can be installed from [MELPA](https://melpa.org/#/ob-bitfield) with `M-x package-install ob-bitfield`. Before using it, make sure to install the [required dependencies](#required-dependencies).
 
-[Imagemagick](https://imagemagick.org/) is also required if you would like to generate images other than SVGs. On Debian/Ubuntu this can be installed with `sudo apt install imagemagick`, and on macOS it can be installed with `brew install imagemagick`.
-
-Download [ob-bitfield.el](https://raw.githubusercontent.com/gsingh93/ob-bitfield/main/ob-bitfield.el) to `~/.emacs.d` or another directory in your [`load-path`](https://www.gnu.org/software/emacs/manual/html_node/elisp/Library-Search.html). You can then enable the package in one of the following ways.
+You can then enable the package in one of the following ways:
 
 1. Call [`org-babel-do-load-languages`](https://orgmode.org/manual/Languages.html):
 
@@ -27,6 +22,15 @@ Download [ob-bitfield.el](https://raw.githubusercontent.com/gsingh93/ob-bitfield
 (use-package ob-bitfield
   :after org)
 ```
+
+### Required Dependencies
+
+Install the [bitfield](https://github.com/Arth-ur/bitfield) Python package:
+```
+pip install bit_field[JSON5]
+```
+
+[Imagemagick](https://imagemagick.org/) is also required if you would like to generate images other than SVGs. On Debian/Ubuntu this can be installed with `sudo apt install imagemagick`, and on macOS it can be installed with `brew install imagemagick`.
 
 ## Usage
 

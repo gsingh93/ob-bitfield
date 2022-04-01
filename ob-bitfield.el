@@ -77,9 +77,9 @@ the header args."
       (insert body))
     (with-temp-file svg-file
       (insert (org-babel-eval (concat "python3 -m bit_field " args) "")))
-    ;; Convert the SVG to the correct type as long as the output filename has an
-    ;; extension and that extension is not "svg"
-    (unless (or (null file-ext) (string-equal file-ext "svg"))
+    ;; If our output format is not an SVG, we need to convert our SVG to the
+    ;; correct format
+    (unless (string-equal svg-file out-file)
       (with-temp-buffer
         (let ((exit-code (call-process "convert" nil t nil svg-file out-file)))
           (when (/= exit-code 0)

@@ -2,6 +2,8 @@
 
 Generate bitfield diagrams using the Python [bitfield](https://github.com/Arth-ur/bitfield) package and [org-babel](https://orgmode.org/worg/org-contrib/babel/).
 
+![example](./example.png)
+
 ## Installation
 
 `ob-bitfield` can be installed from [MELPA](https://melpa.org/#/ob-bitfield) with `M-x package-install ob-bitfield`. Before using it, make sure to install the [required dependencies](#required-dependencies).
